@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 
-public class RegistrationForm {
+public class RegistrationFormTests {
 
 
     @Test
-    void successfulSearchTest() {
+    void PositiveTestRegistrationForm() {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browser = "firefox";
