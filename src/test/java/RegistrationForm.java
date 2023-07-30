@@ -1,20 +1,14 @@
-import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.conditions.Attribute;
-import io.opentelemetry.api.common.Attributes;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
 
-public class SearchTests {
+public class RegistrationForm {
 
 
     @Test
