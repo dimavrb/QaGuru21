@@ -8,22 +8,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-
 public class RegistrationFormTests {
-
 
 
     @BeforeAll
     static void preconditionTests() {
 
 
-    Configuration.browserSize = "1920x1080";
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.browser = "firefox";}
+        Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = "firefox";
+        Configuration.baseUrl = "https://demoqa.com/";
+    }
+
     @Test
     void positiveTestRegistrationForm() {
 
-        Configuration.baseUrl = "https://demoqa.com/";
+
         open("automation-practice-form");
         $("#firstName").setValue("Dmitrii");
         $("#lastName").setValue("Kalinin");
