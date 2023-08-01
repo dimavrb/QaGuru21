@@ -20,12 +20,28 @@ public class SelenideWikiTest {
     }
 
     @Test
-    void selenideWikiTest() {
+    void positiveSelenideWikiTestJUnit5() {
 
         open("selenide/selenide");
         $("#wiki-tab").click();
-        $("#wiki-body").shouldHave(text("Soft assertions"));
-        $("#wiki-body").$(byText("Soft assertions")).click();
-        $("#user-content-3-using-junit5-extend-test-class").parent().shouldHave(text("3. Using JUnit5 extend test class:"));
+        $(".wiki-more-pages-link").scrollTo();
+        $(".wiki-more-pages-link").lastChild().click();
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").$(byText("SoftAssertions")).click();
+        $("#wiki-body").shouldHave(text("3. Using JUnit5 extend test class:"));
+        $("#wiki-body").shouldHave(text(
+                """
+                        @ExtendWith({SoftAssertsExtension.class})
+                        class Tests {
+                        @Test
+                        void test() {
+                        Configuration.assertionMode = SOFT;
+                        open("page.html");
+
+                        $("#first").should(visible).click();
+                        $("#second").should(visible).click();
+                        }
+                        }"""));
+
     }
 }
