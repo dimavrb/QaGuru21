@@ -20,8 +20,11 @@ public class DragAndDropTest {
     @Test
     void dragAndDropTest() {
         open("drag_and_drop");
+        $(".column:first-child").shouldHave(text("A"));
+        $(".column:last-child").shouldHave(text("B"));
         $("#column-a").dragAndDropTo("#column-b");
         $(".column:first-child").shouldHave(text("B"));
+        $(".column:last-child").shouldHave(text("A"));
     }
 
     @Test
