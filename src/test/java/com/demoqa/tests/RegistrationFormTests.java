@@ -1,40 +1,41 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.RegistrationPage;
+import com.demoqa.pages.registrationPage;
+import com.demoqa.pages.registrationResultTable;
 import org.junit.jupiter.api.Test;
 
 
 public class RegistrationFormTests extends TestBase {
 
-    RegistrationPage RegistrationPage = new RegistrationPage();
+    registrationPage registrationPage = new registrationPage();
+    registrationResultTable registrationResultTable = new registrationResultTable();
 
     @Test
     void positiveTestRegistrationForm() {
-        RegistrationPage.openPage();
-        RegistrationPage.setFirstName("Dmitrii");
-        RegistrationPage.setLastName("Kalinin");
-        RegistrationPage.setUserEmailInput("dima@test.ru");
-        RegistrationPage.setGenterWrapper("Male");
-        RegistrationPage.setUserNumber("79531453389");
-        RegistrationPage.setHobbies("[for=hobbies-checkbox-1]");
-        RegistrationPage.setSubject("Math");
-        RegistrationPage.setAddress("St. Petersburg");
-        RegistrationPage.setState("Haryana");
-        RegistrationPage.setCity("Karnal");
-        RegistrationPage.uploadImage("test.jpg");
-        RegistrationPage.setBirthDate("26", "May", "1992");
-        RegistrationPage.submit();
+        registrationPage.openPage()
+                .setFirstName("Dmitrii")
+                .setLastName("Kalinin")
+                .setUserEmailInput("dima@test.ru")
+                .setGenterWrapper("Male")
+                .setUserNumber("79531453389")
+                .setHobbies("[for=hobbies-checkbox-1]")
+                .setSubject("Math")
+                .setAddress("St. Petersburg")
+                .setState("Haryana")
+                .setCity("Karnal")
+                .uploadImage("test.jpg")
+                .setBirthDate("26", "May", "1992")
+                .submit();
 
 
-        RegistrationPage.assertTable("Dmitrii");
-        RegistrationPage.assertTable("Male");
-        RegistrationPage.assertTable("7953145338");
-        RegistrationPage.assertTable("26 May,1992");
-        RegistrationPage.assertTable("Maths");
-        RegistrationPage.assertTable("Sports");
-        RegistrationPage.assertTable("test.jpg");
-        RegistrationPage.assertTable("St. Petersburg");
-        RegistrationPage.assertTable("Haryana Karnal");
-
+        registrationResultTable.assertTable("Dmitrii")
+        .assertTable("Male")
+        .assertTable("7953145338")
+        .assertTable("26 May,1992")
+        .assertTable("Maths")
+        .assertTable("Sports")
+        .assertTable("test.jpg")
+        .assertTable("St. Petersburg")
+        .assertTable("Haryana Karnal");
     }
 }
