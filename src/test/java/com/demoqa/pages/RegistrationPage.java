@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class registrationPage {
+public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
     SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genterWrapper = $("#genterWrapper"),
+            genderWrapper = $("#genterWrapper"),
             userNumber = $("#userNumber"),
             hobbies = $("#hobbiesWrapper"),
             currentAddress = $("#currentAddress"),
@@ -25,69 +25,69 @@ public class registrationPage {
             birthDateInput = $("#dateOfBirthInput"),
             submit = $("#submit");
 
-    public registrationPage openPage() {
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         TestBase.closeBanner();
         return this;
     }
 
-    public registrationPage setFirstName(String value) {
+    public RegistrationPage setFirstName(String value) {
 
         firstNameInput.setValue(value);
 
         return this;
     }
 
-    public registrationPage setLastName(String value) {
+    public RegistrationPage setLastName(String value) {
 
         lastNameInput.setValue(value);
 
         return this;
     }
 
-    public registrationPage setUserEmailInput(String value) {
+    public RegistrationPage setUserEmailInput(String value) {
 
         userEmailInput.setValue(value);
 
         return this;
     }
 
-    public registrationPage setGenterWrapper(String value) {
+    public RegistrationPage setGenderWrapper(String value) {
 
 
-        genterWrapper.$(byText(value)).click();
+        genderWrapper.$(byText(value)).click();
 
         return this;
     }
 
-    public registrationPage setUserNumber(String value) {
+    public RegistrationPage setUserNumber(String value) {
 
         userNumber.setValue(value);
 
         return this;
     }
 
-    public registrationPage setHobbies(String value) {
+    public RegistrationPage setHobbies(String value) {
 
-        hobbies.$(value).click();
+        hobbies.$(byText(value)).click();
         return this;
     }
 
-    public registrationPage setSubject(String value) {
+    public RegistrationPage setSubject(String value) {
 
         subjectsInput.val(value).pressEnter();
 
         return this;
     }
 
-    public registrationPage setAddress(String value) {
+    public RegistrationPage setAddress(String value) {
 
         currentAddress.setValue(value);
         return this;
     }
 
-    public registrationPage setState(String value) {
+    public RegistrationPage setState(String value) {
         state.scrollTo();
         state.click();
         state.$(byText(value)).click();
@@ -95,29 +95,29 @@ public class registrationPage {
         return this;
     }
 
-    public registrationPage setCity(String value) {
+    public RegistrationPage setCity(String value) {
         city.click();
         city.$(byText(value)).click();
 
         return this;
     }
 
-    public registrationPage submit() {
+    public RegistrationPage submit() {
         submit.click();
 
         return this;
     }
 
-    public registrationPage uploadImage(String value) {
+    public RegistrationPage uploadImage(String value) {
 
         image.uploadFromClasspath(value);
 
         return this;
     }
 
-    public registrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String birthDate) {
         birthDateInput.click();
-        calendar.setDate(day, month, year);
+        calendar.setDate(birthDate);
 
         return this;
     }

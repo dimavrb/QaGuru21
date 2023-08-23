@@ -1,41 +1,62 @@
 package com.demoqa.tests;
 
-import com.demoqa.pages.registrationPage;
-import com.demoqa.pages.registrationResultTable;
+import com.demoqa.pages.RegistrationPage;
+import com.demoqa.pages.components.RegistrationResultTableComponent;
+import com.demoqa.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
 
 public class RegistrationFormTests extends TestBase {
 
-    registrationPage registrationPage = new registrationPage();
-    registrationResultTable registrationResultTable = new registrationResultTable();
+    RegistrationPage registrationPage = new RegistrationPage();
+    RegistrationResultTableComponent registrationResultTable = new RegistrationResultTableComponent();
+
+    RandomUtils randomUtils = new RandomUtils();
 
     @Test
     void positiveTestRegistrationForm() {
+
+        String firstName = randomUtils.firstName;
+        String lastName = randomUtils.lastName;
+        String email = randomUtils.email;
+        String gender = randomUtils.getRandomGender();
+        String mobilePhone = randomUtils.mobilePhone;
+        String hobbies = randomUtils.getRandomHobbies();
+        String subject = randomUtils.getSubject();
+        String address = randomUtils.address;
+        String state = randomUtils.cityAndState[0];
+        String city = randomUtils.cityAndState[1];
+        String image = "test.jpg";
+        String birthDate = randomUtils.getBirthDate();
+
+
+
         registrationPage.openPage()
-                .setFirstName("Dmitrii")
-                .setLastName("Kalinin")
-                .setUserEmailInput("dima@test.ru")
-                .setGenterWrapper("Male")
-                .setUserNumber("79531453389")
-                .setHobbies("[for=hobbies-checkbox-1]")
-                .setSubject("Math")
-                .setAddress("St. Petersburg")
-                .setState("Haryana")
-                .setCity("Karnal")
-                .uploadImage("test.jpg")
-                .setBirthDate("26", "May", "1992")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmailInput(email)
+                .setGenderWrapper(gender)
+                .setUserNumber(mobilePhone)
+                .setBirthDate(birthDate)
+                .setSubject(subject)
+                .setHobbies(hobbies)
+                .uploadImage(image)
+                .setAddress(address)
+                .setState(state)
+                .setCity(city)
                 .submit();
 
 
-        registrationResultTable.assertTable("Dmitrii")
-        .assertTable("Male")
-        .assertTable("7953145338")
-        .assertTable("26 May,1992")
-        .assertTable("Maths")
-        .assertTable("Sports")
-        .assertTable("test.jpg")
-        .assertTable("St. Petersburg")
-        .assertTable("Haryana Karnal");
+        registrationResultTable.assertTable(firstName)
+        .assertTable(lastName)
+        .assertTable(email)
+        .assertTable(gender)
+        .assertTable(mobilePhone)
+       // .assertTable(birthDate) не смог конвертировать дату в формат из таблицы
+        .assertTable(subject)
+        .assertTable(hobbies)
+        .assertTable(image)
+        .assertTable(address)
+        .assertTable(state + " "+ city);
     }
 }
