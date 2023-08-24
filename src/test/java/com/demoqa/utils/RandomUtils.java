@@ -3,6 +3,8 @@ package com.demoqa.utils;
 import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Locale;
 
 public class RandomUtils {
@@ -16,61 +18,71 @@ public class RandomUtils {
     public String mobilePhone = faker.phoneNumber().subscriberNumber(10);
     public String address = faker.address().city();
 
+    public String randomGender = getRandomGender();
+    public String randomHobbies = getRandomHobbies();
+    public String subject = getSubject();
+    private final Dictionary<String,String> getStateAndCity = generateStateAndCity();
+    public String state = getStateAndCity.get("State");
+    public String city = getStateAndCity.get("City");
+    public String[] birthDate = randomBirthDate();
 
-    public String getRandomGender() {
+    private String getRandomGender() {
         String[] genders = {
                 "Male", "Female", "Other"
         };
-        return new Faker().options().option(genders);
+        return faker.options().option(genders);
     }
-    public String getRandomHobbies () {
+    private String getRandomHobbies () {
         String[] hobbies = {
                 "Sports", "Reading", "Music"
         };
-        return new Faker().options().option(hobbies);
+        return faker.options().option(hobbies);
     }
 
-    public String getSubject() {
+    private String getSubject() {
         String[] subject = {
                 "Math", "English", "Hindi"
         };
-        return new Faker().options().option(subject);
+        return faker.options().option(subject);
     }
 
-    public String getBirthDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/LLLL/yyyy");
-        Faker faker = new Faker();
-        return sdf.format(faker.date().birthday());
+    private String[] randomBirthDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd LLLL yyyy",Locale.ENGLISH);
+        String calendarDate = sdf.format(faker.date().birthday());
+
+        return calendarDate.split(" ");
     }
 
 
-    private String[] getStateAndCity() {
+
+
+    private Dictionary<String, String> generateStateAndCity() {
         String[] state = {
                 "NCR", "Uttar Pradesh", "Haryana", "Rajasthan"
         };
-        String stateValue = new Faker().options().option(state);
+        String stateValue = faker.options().option(state);
 
-        String cityResult = null;
+        String cityValue = null;
         switch (stateValue) {
             case ("NCR") -> {
                 String[] cityNcr = {
                         "Delhi", "Gurgaon", "Noida"
                 };
-                cityResult = new Faker().options().option(cityNcr);
+                cityValue = faker.options().option(cityNcr);
 
             }
             case ("Uttar Pradesh") -> {
                 String[] cityUttarPradesh = {
                         "Agra", "Lucknow", "Merrut"
                 };
-                cityResult = new Faker().options().option(cityUttarPradesh);
+                cityValue = faker.options().option(cityUttarPradesh);
 
             }
             case ("Haryana") -> {
                 String[] cityHaryana = {
                         "Karnal", "Panipat"
                 };
-                cityResult = new Faker().options().option(cityHaryana);
+                cityValue = faker.options().option(cityHaryana);
 
 
             }
@@ -78,15 +90,19 @@ public class RandomUtils {
                 String[] cityRajasthan = {
                         "Jaipur", "Jaiselmer"
                 };
-                cityResult = new Faker().options().option(cityRajasthan);
+                cityValue = faker.options().option(cityRajasthan);
 
 
             }
         }
 
-
-        return new String[]{stateValue, cityResult};
+        Dictionary<String, String> stateAndCity = new Hashtable<>();
+        stateAndCity.put("State", stateValue);
+        stateAndCity.put("City", cityValue);
+        return stateAndCity ;
     }
-    public String[] cityAndState = getStateAndCity();
+
+
+
 
 }

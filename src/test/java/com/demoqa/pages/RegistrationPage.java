@@ -115,7 +115,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String birthDate) {
+    public RegistrationPage setBirthDate(String[] birthDate) {
         birthDateInput.click();
         calendar.setDate(birthDate);
 
