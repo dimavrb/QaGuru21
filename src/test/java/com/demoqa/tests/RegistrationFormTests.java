@@ -6,7 +6,6 @@ import com.demoqa.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
 
-
 public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -14,58 +13,52 @@ public class RegistrationFormTests extends TestBase {
 
     RandomUtils randomUtils = new RandomUtils();
 
-    TestData testData = new TestData();
-    private class TestData {
 
-        String firstName = randomUtils.firstName;
-        String lastName = randomUtils.lastName;
-        String email = randomUtils.email;
-        String gender = randomUtils.randomGender;
-        String mobilePhone = randomUtils.mobilePhone;
-        String hobbies = randomUtils.randomHobbies;
-        String subject = randomUtils.subject;
-        String address = randomUtils.address;
-        String state = randomUtils.state;
-        String city = randomUtils.city;
+    String firstName = randomUtils.firstName;
+    String lastName = randomUtils.lastName;
+    String email = randomUtils.email;
+    String gender = randomUtils.randomGender;
+    String mobilePhone = randomUtils.mobilePhone;
+    String hobbies = randomUtils.randomHobbies;
+    String subject = randomUtils.subject;
+    String address = randomUtils.address;
+    String state = randomUtils.state;
+    String city = randomUtils.city;
 
-        String image = "test.jpg";
+    String image = randomUtils.image;
 
-        String[] birthDate = (randomUtils.birthDate);
-    }
+    String[] birthDate = (randomUtils.birthDate);
 
     @Test
     void positiveTestRegistrationForm() {
 
 
-
-
-
         registrationPage.openPage()
-                .setFirstName(testData.firstName)
-                .setLastName(testData.lastName)
-                .setUserEmailInput(testData.email)
-                .setGenderWrapper(testData.gender)
-                .setUserNumber(testData.mobilePhone)
-                .setBirthDate(testData.birthDate)
-                .setSubject(testData.subject)
-                .setHobbies(testData.hobbies)
-                .uploadImage(testData.image)
-                .setAddress(testData.address)
-                .setState(testData.state)
-                .setCity(testData.city)
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmailInput(email)
+                .setGenderWrapper(gender)
+                .setUserNumber(mobilePhone)
+                .setBirthDate(birthDate)
+                .setSubject(subject)
+                .setHobbies(hobbies)
+                .uploadImage(image)
+                .setAddress(address)
+                .setState(state)
+                .setCity(city)
                 .submit();
 
 
-        registrationResultTable.assertTable(testData.firstName)
-        .assertTable(testData.lastName)
-        .assertTable(testData.email)
-        .assertTable(testData.gender)
-        .assertTable(testData.mobilePhone)
-        .assertTable(testData.birthDate[0]+" "+testData.birthDate[1]+","+testData.birthDate[2])
-        .assertTable(testData.subject)
-        .assertTable(testData.hobbies)
-        .assertTable(testData.image)
-        .assertTable(testData.address)
-        .assertTable(testData.state + " "+ testData.city);
+        registrationResultTable.assertTable(firstName)
+                .assertTable(lastName)
+                .assertTable(email)
+                .assertTable(gender)
+                .assertTable(mobilePhone)
+                .assertTable(birthDate[0] + " " + birthDate[1] + "," + birthDate[2])
+                .assertTable(subject)
+                .assertTable(hobbies)
+                .assertTable(image)
+                .assertTable(address)
+                .assertTable(state + " " + city);
     }
 }

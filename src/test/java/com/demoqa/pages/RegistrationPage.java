@@ -7,7 +7,8 @@ import com.demoqa.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
@@ -102,10 +103,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submit() {
+    public void submit() {
         submit.click();
 
-        return this;
     }
 
     public RegistrationPage uploadImage(String value) {
