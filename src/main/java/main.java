@@ -1,12 +1,11 @@
-package com.demoqa;
-
-public class VarAndOperator {
+public class main {
     public static void main(String[] args) {
         byte b = -128; // диапазон от -128 до 127!
         short s = 32767; // –32768 до 32767
         int i = 2147483647; // -2 147 483 648 до 2 147 483 647
         long l = 9223372036854775807L; // 9 223 372 036 854 775 808 до 9 223 372 036 854 775 807
         char c = (char) -1;//0 до 65536
+
 
         //Переполнение
 
