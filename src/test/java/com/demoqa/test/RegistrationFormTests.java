@@ -14,51 +14,37 @@ public class RegistrationFormTests extends TestBase {
     RandomUtils randomUtils = new RandomUtils();
 
 
-    String firstName = randomUtils.firstName;
-    String lastName = randomUtils.lastName;
-    String email = randomUtils.email;
-    String gender = randomUtils.randomGender;
-    String mobilePhone = randomUtils.mobilePhone;
-    String hobbies = randomUtils.randomHobbies;
-    String subject = randomUtils.subject;
-    String address = randomUtils.address;
-    String state = randomUtils.state;
-    String city = randomUtils.city;
-
-    String image = randomUtils.image;
-
-    String[] birthDate = (randomUtils.birthDate);
 
     @Test
     void positiveTestRegistrationForm() {
 
 
         registrationPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmailInput(email)
-                .setGenderWrapper(gender)
-                .setUserNumber(mobilePhone)
-                .setBirthDate(birthDate)
-                .setSubject(subject)
-                .setHobbies(hobbies)
-                .uploadImage(image)
-                .setAddress(address)
-                .setState(state)
-                .setCity(city)
+                .setFirstName(randomUtils.firstName)
+                .setLastName(randomUtils.lastName)
+                .setUserEmailInput(randomUtils.email)
+                .setGenderWrapper(randomUtils.randomGender)
+                .setUserNumber(randomUtils.mobilePhone)
+                .setBirthDate(randomUtils.birthDate)
+                .setSubject(randomUtils.subject)
+                .setHobbies(randomUtils.randomHobbies)
+                .uploadImage(randomUtils.image)
+                .setAddress(randomUtils.address)
+                .setState(randomUtils.state)
+                .setCity(randomUtils.city)
                 .submit();
 
 
-        registrationResultTable.assertTable(firstName)
-                .assertTable(lastName)
-                .assertTable(email)
-                .assertTable(gender)
-                .assertTable(mobilePhone)
-                .assertTable(birthDate[0] + " " + birthDate[1] + "," + birthDate[2])
-                .assertTable(subject)
-                .assertTable(hobbies)
-                .assertTable(image)
-                .assertTable(address)
-                .assertTable(state + " " + city);
+        registrationResultTable.assertTable(randomUtils.firstName)
+                .assertTable(randomUtils.lastName)
+                .assertTable(randomUtils.email)
+                .assertTable(randomUtils.randomGender)
+                .assertTable(randomUtils.mobilePhone)
+                .assertTable(randomUtils.birthDate[0] + " " + randomUtils.birthDate[1] + "," + randomUtils.birthDate[2])
+                .assertTable(randomUtils.subject)
+                .assertTable(randomUtils.randomHobbies)
+                .assertTable(randomUtils.image)
+                .assertTable(randomUtils.address)
+                .assertTable(randomUtils.state + " " + randomUtils.city);
     }
 }
