@@ -1,12 +1,12 @@
-package test.java.com.demoqa.tests;
+package com.demoqa.test;
 
-import test.java.com.demoqa.pages.RegistrationPage;
-import test.java.com.demoqa.pages.components.RegistrationResultTableComponent;
-import test.java.com.demoqa.utils.RandomUtils;
+import com.demoqa.pages.RegistrationPage;
+import com.demoqa.pages.components.RegistrationResultTableComponent;
+import com.demoqa.utils.RandomUtils;
 import org.junit.jupiter.api.Test;
 
 
-public class RegistrationFormTests extends test.java.com.demoqa.tests.TestBase {
+public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultTableComponent registrationResultTable = new RegistrationResultTableComponent();

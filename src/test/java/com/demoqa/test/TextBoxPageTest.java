@@ -1,7 +1,7 @@
-package test.java.com.demoqa.tests;
+package com.demoqa.test;
 
 
-import test.java.com.demoqa.pages.TextBoxPage;
+import com.demoqa.pages.TextBoxPage;
 import org.junit.jupiter.api.Test;
 
 

@@ -1,9 +1,9 @@
-package test.java.com.demoqa.pages;
+package com.demoqa.pages;
 
 
 import com.codeborne.selenide.SelenideElement;
-import test.java.com.demoqa.pages.components.CalendarComponent;
-import test.java.com.demoqa.tests.TestBase;
+import com.demoqa.pages.components.CalendarComponent;
+import com.demoqa.test.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

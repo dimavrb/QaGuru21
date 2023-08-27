@@ -1,4 +1,4 @@
-package test.java.com.demoqa.utils;
+package com.demoqa.utils;
 
 import com.github.javafaker.Faker;
 
@@ -10,7 +10,7 @@ import java.util.Locale;
 public class RandomUtils {
 
 
-    public String image = "/Users/dmitrijkalinin/IdeaProjects/QaGuru-21/src/test/java/resources/test.jpg";
+    public String image = "test.jpg";
     Faker faker = new Faker(new Locale("EN"));
     public String firstName = faker.name().firstName();
     public String lastName = faker.name().lastName();
