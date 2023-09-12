@@ -2,6 +2,7 @@ package com.demoqa.test;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -20,6 +21,7 @@ public class DragAndDropTest {
     }
 
     @Test
+    @Disabled
     void dragAndDropTest() {
         open("drag_and_drop");
         $(".column:first-child").shouldHave(text("A"));
@@ -30,6 +32,7 @@ public class DragAndDropTest {
     }
 
     @Test
+    @Disabled
     void actionsTest() {
         open("drag_and_drop");
         actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();

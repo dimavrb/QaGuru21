@@ -3,6 +3,7 @@ package com.demoqa.test;
 import com.demoqa.pages.RegistrationPage;
 import com.demoqa.pages.components.RegistrationResultTableComponent;
 import com.demoqa.utils.RandomUtils;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
@@ -16,6 +17,7 @@ public class RegistrationFormTests extends TestBase {
 
 
     @Test
+    @Tag("RegistrationForm")
     void positiveTestRegistrationForm() {
 
 
