@@ -20,7 +20,7 @@ public class RandomUtils {
     public String randomGender = getRandomGender();
     public String randomHobbies = getRandomHobbies();
     public String subject = getSubject();
-    private static Dictionary<String, String> getStateAndCity = generateStateAndCity();
+    private final static Dictionary<String, String> getStateAndCity = generateStateAndCity();
     public String state = getStateAndCity.get("State");
     public String city = getStateAndCity.get("City");
     public String[] birthDate = randomBirthDate();
