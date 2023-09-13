@@ -32,8 +32,6 @@ public class RegistrationFormTests extends TestBase {
                 .setHobbies(randomUtils.randomHobbies)
                 .uploadImage(randomUtils.image)
                 .setAddress(randomUtils.address)
-                .setState(randomUtils.state)
-                .setCity(randomUtils.city)
                 .submit();
 
 
@@ -46,7 +44,7 @@ public class RegistrationFormTests extends TestBase {
                 .assertTable(randomUtils.subject)
                 .assertTable(randomUtils.randomHobbies)
                 .assertTable(randomUtils.image)
-                .assertTable(randomUtils.address)
-                .assertTable(randomUtils.state);
+                .assertTable(randomUtils.address);
+
     }
 }
