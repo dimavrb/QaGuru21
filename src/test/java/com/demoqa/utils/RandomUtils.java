@@ -11,7 +11,7 @@ public class RandomUtils {
 
 
     public String image = "test.jpg";
-    Faker faker = new Faker(new Locale("EN"));
+    static Faker faker = new Faker(new Locale("EN"));
     public String firstName = faker.name().firstName();
     public String lastName = faker.name().lastName();
     public String email = faker.internet().emailAddress();
@@ -20,7 +20,7 @@ public class RandomUtils {
     public String randomGender = getRandomGender();
     public String randomHobbies = getRandomHobbies();
     public String subject = getSubject();
-    private final Dictionary<String, String> getStateAndCity = generateStateAndCity();
+    private static Dictionary<String, String> getStateAndCity = generateStateAndCity();
     public String state = getStateAndCity.get("State");
     public String city = getStateAndCity.get("City");
     public String[] birthDate = randomBirthDate();
@@ -48,7 +48,7 @@ public class RandomUtils {
     }
 
 
-    private Dictionary<String, String> generateStateAndCity() {
+    private static Dictionary<String, String> generateStateAndCity() {
         String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         String stateValue = faker.options().option(state);
 

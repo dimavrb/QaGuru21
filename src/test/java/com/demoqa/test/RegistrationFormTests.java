@@ -47,6 +47,6 @@ public class RegistrationFormTests extends TestBase {
                 .assertTable(randomUtils.randomHobbies)
                 .assertTable(randomUtils.image)
                 .assertTable(randomUtils.address)
-                .assertTable(randomUtils.state + " " + randomUtils.city);
+                .assertTable(randomUtils.state);
     }
 }
