@@ -16,10 +16,15 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+        String browser = System.getProperty("browser");
+        String browserSize = System.getProperty("browserSize");
+        String remote = System.getProperty("remote");
+        String browserVersion = System.getProperty("browserVersion");
+        Configuration.browser = browser;
+        Configuration.browserSize = browserSize;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
+        Configuration.remote = remote;
+        Configuration.browserVersion = browserVersion;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
