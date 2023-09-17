@@ -16,10 +16,10 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
-        String browser = System.getProperty("browser");
-        String browserSize = System.getProperty("browserSize");
-        String remote = System.getProperty("remote");
-        String browserVersion = System.getProperty("browserVersion");
+        String browser = System.getProperty("browser", "chrome");
+        String browserSize = System.getProperty("browserSize", "1920x1080");
+        String remote = System.getProperty("remote","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        String browserVersion = System.getProperty("browserVersion","100.0");
         Configuration.browser = browser;
         Configuration.browserSize = browserSize;
         Configuration.baseUrl = "https://demoqa.com";
