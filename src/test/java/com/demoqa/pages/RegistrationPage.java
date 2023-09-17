@@ -109,7 +109,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadImage(String value) {
-
+        image.scrollTo();
         image.uploadFromClasspath(value);
 
         return this;
